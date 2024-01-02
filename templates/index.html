@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Final Project</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .jwt-content {
+      position: relative;
+      padding-top: 35px;
+    }
+    .token-content {
+      word-break: break-all;
+    }
+    .copy-button {
+      position: absolute;
+      top: 5px;  /* Adjust as needed */
+      right: 5px; /* Adjust as needed */
+      background-color: rgba(255, 255, 255, 0); /* Transparent background */
+      color: inherit; /* Ensures text color remains the same */
+      border: none; /* Remove border for transparency */
+      transition: background-color 0.3s ease; /* Transition for background color */
+    }
+    .copy-button:hover {
+      background-color: rgba(255, 255, 255, 1); /* White background on hover */
+    }
+  </style>
+</head>
+<body class="bg-dark text-white">
+  
+  <div class="container text-center">
+    <h1 class="mt-5">CS 493 Cloud Application Development - Final Project</h1>
+    <h2 class="mb-4">by: Robert Rouleau</h2>
+    
+    {% if session %}
+      <h3>Logged in</h3>
+      <div class="table-responsive">
+        <table class="table table-dark table-striped table-bordered">
+          <tr>
+            <td>userinfo</td>
+            <td>{{session.userinfo.name}}</td>
+          </tr>
+          <tr>
+            <td>JWT</td>
+            <td>
+              <div class="jwt-content">
+                <button class="btn btn-sm btn-light copy-button" onclick="copyToClipboard(this, '{{session.id_token}}')">Copy</button>
+                <div class="token-content">{{session.id_token}}</div>
+              </div>              
+            </td>
+          </tr>
+          <tr class="text-nowrap">
+            <td>Unique ID</td>
+            <td>{{uid}}</td>
+          </tr>
+        </table>
+      </div>
+      <p><a href="/logout" class="btn btn-primary">Logout</a></p>
+    {% else %}
+      <p>Log in to view JWT and unique ID.</p>
+      <p><a href="/login" class="btn btn-primary">Login</a></p>
+    {% endif %}
+  </div>
+
+  <script>
+    function copyToClipboard(button, text) {
+      navigator.clipboard.writeText(text).then(function() {
+        console.log('Copying to clipboard was successful!');
+      }, function(err) {
+        console.error('Could not copy text: ', err);
+      });
+
+      button.textContent = 'Copied!';
+      setTimeout(function() {
+        button.textContent = 'Copy';
+      }, 2000);
+    }
+  </script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
