@@ -1,6 +1,6 @@
 # gcloud-rest-app
 
-[API Specification]()
+[API Specification](gcloud-rest-app.pdf)
 
 ### Change Log
 
