@@ -1,5 +1,7 @@
 # gcloud-rest-app
 
+[API Specification]()
+
 ### Change Log
 
 - **Version 1.0 (Dec 11, 2023):** Initial version.
@@ -8,10 +10,12 @@
 
 ### Project Overview
 
-This repository contains the final project for CS 493: Cloud Application Development. It includes a comprehensive data model and API specification for a music playlist management system. It also contains a Postman test suite. The application is no longer being hosted.
+This repository contains the final project for CS 493: Cloud Application Development. It includes a data model and API specification for a music playlist management system. It also contains a comprehensive Postman test suite. The application is no longer being hosted.
 
 #### Screenshot of the Home Page
 ![Home Page](images/homepage.png)
+
+#### Screenshot of the User Page
 ![User Page](images/userpage.png)
 
 ---
