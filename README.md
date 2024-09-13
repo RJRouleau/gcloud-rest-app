@@ -73,8 +73,3 @@ To use the API, you must set the Authorization header to Bearer Token with a val
 
 ---
 
-### Contact
-
-[Robert Rouleau] - [robert.j.rouleau@gmail.com]
-
----
